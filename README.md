@@ -5,7 +5,7 @@
 - Install JDK from [Oracle JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - Install [Apache Maven](https://maven.apache.org/)
 - Install and configure [AWS CLI](https://docs.aws.amazon.com/it_it/cli/latest/userguide/install-cliv2.html)
-- Install Servless framework:
+- Install [Serverless](https://www.serverless.com/) framework:
 ```
 npm install -g serverless
 ```
