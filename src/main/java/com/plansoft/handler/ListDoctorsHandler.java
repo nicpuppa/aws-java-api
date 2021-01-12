@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class ListDoctorHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
+public class ListDoctorsHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
     private final Logger logger = Logger.getLogger(this.getClass());
 
@@ -29,10 +29,10 @@ public class ListDoctorHandler implements RequestHandler<Map<String, Object>, Ap
                     .setHeaders(Collections.singletonMap("X-Powered-By", "AWS Lambda & Serverless"))
                     .build();
         } catch (Exception ex) {
-            logger.error("Error in listing products: " + ex);
+            logger.error("Error in listing doctors: " + ex);
 
             // send the error response back
-            Response responseBody = new Response("Error in listing products: ", input);
+            Response responseBody = new Response("Error in listing doctors: ", input);
             return ApiGatewayResponse.builder()
                     .setStatusCode(500)
                     .setObjectBody(responseBody)

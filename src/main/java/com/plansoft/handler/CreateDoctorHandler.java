@@ -24,10 +24,13 @@ public class CreateDoctorHandler implements RequestHandler<Map<String, Object>, 
             JsonNode body = new ObjectMapper().readTree((String) input.get("body"));
             DoctorDAO dao = new DoctorDAO();
 
-            // create the Product object for post
+            logger.info(body.toString());
+
+            // create the Doctor object for post
             Doctor doctor = new Doctor();
             doctor.setName(body.get("name").asText());
-            doctor.setSurname((String) body.get("surname").toString());
+            doctor.setSurname(body.get("surname").asText());
+            logger.error("SONO QUI");
 
             dao.insert(doctor);
 
@@ -39,13 +42,14 @@ public class CreateDoctorHandler implements RequestHandler<Map<String, Object>, 
                     .build();
 
         } catch (Exception ex) {
-            logger.error("Error in saving product: " + ex);
+            logger.error("Error in saving doctor: " + ex);
 
             // send the error response back
-            Response responseBody = new Response("Error in saving product: ", input);
+            Response responseBody = new Response("Error in saving doctor: ", input);
             return ApiGatewayResponse.builder()
                     .setStatusCode(500)
-                    .setObjectBody(responseBody)
+                    .setObjectBody(ex)
+                    .setObjectBody(ex)
                     .setHeaders(Collections.singletonMap("X-Powered-By", "AWS Lambda & Serverless"))
                     .build();
         }

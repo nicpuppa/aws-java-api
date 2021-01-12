@@ -35,15 +35,15 @@ public class GetDoctorHandler implements RequestHandler<Map<String, Object>, Api
             } else {
                 return ApiGatewayResponse.builder()
                         .setStatusCode(404)
-                        .setObjectBody("Product with id: '" + productId + "' not found.")
+                        .setObjectBody("Doctor with id: '" + productId + "' not found.")
                         .setHeaders(Collections.singletonMap("X-Powered-By", "AWS Lambda & Serverless"))
                         .build();
             }
         } catch (Exception ex) {
-            logger.error("Error in retrieving product: " + ex);
+            logger.error("Error in retrieving doctor: " + ex);
 
             // send the error response back
-            Response responseBody = new Response("Error in retrieving product: ", input);
+            Response responseBody = new Response("Error in retrieving doctor: ", input);
             return ApiGatewayResponse.builder()
                     .setStatusCode(500)
                     .setObjectBody(responseBody)

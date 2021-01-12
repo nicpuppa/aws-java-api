@@ -59,28 +59,28 @@ package:
   artifact: target/${self:service}-${self:provider.stage}.jar
 
 functions:
-  listProducts:
+  listDoctors:
     handler: com.plansoft.handler.ListDoctorsHandler
     events:
       - http:
           path: /doctors
           method: get
 
-  getProduct:
+  getDoctor:
     handler: com.plansoft.handler.GetDoctorHandler
     events:
       - http:
           path: /doctors/{id}
           method: get
 
-  createProduct:
+  createDoctor:
     handler: com.plansoft.handler.CreateDoctorHandler
     events:
       - http:
           path: /doctors
           method: post
 
-  deleteProduct:
+  deleteDoctor:
     handler: com.plansoft.handler.DeleteDoctorHandler
     events:
       - http:

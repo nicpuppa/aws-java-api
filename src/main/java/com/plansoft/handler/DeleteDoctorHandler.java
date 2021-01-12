@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 import java.util.Collections;
 import java.util.Map;
 
-public class DeleteDeleteHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
+public class DeleteDoctorHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
     private final Logger logger = Logger.getLogger(this.getClass());
 
@@ -33,15 +33,15 @@ public class DeleteDeleteHandler implements RequestHandler<Map<String, Object>, 
             } else {
                 return ApiGatewayResponse.builder()
                         .setStatusCode(404)
-                        .setObjectBody("Product with id: '" + productId + "' not found.")
+                        .setObjectBody("Doctor with id: '" + productId + "' not found.")
                         .setHeaders(Collections.singletonMap("X-Powered-By", "AWS Lambda & Serverless"))
                         .build();
             }
         } catch (Exception ex) {
-            logger.error("Error in deleting product: " + ex);
+            logger.error("Error in deleting doctor: " + ex);
 
             // send the error response back
-            Response responseBody = new Response("Error in deleting product: ", input);
+            Response responseBody = new Response("Error in deleting doctor: ", input);
             return ApiGatewayResponse.builder()
                     .setStatusCode(500)
                     .setObjectBody(responseBody)

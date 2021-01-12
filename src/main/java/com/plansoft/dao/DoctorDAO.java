@@ -29,14 +29,14 @@ public class DoctorDAO {
     }
 
     public Boolean ifTableExists() {
-        return this.client.describeTable("products_table").getTable().getTableStatus().equals("ACTIVE");
+        return this.client.describeTable("doctors_table").getTable().getTableStatus().equals("ACTIVE");
     }
 
     public List<Doctor> findAll() throws IOException {
         DynamoDBScanExpression scanExp = new DynamoDBScanExpression();
         List<Doctor> results = this.mapper.scan(Doctor.class, scanExp);
         for (Doctor p : results) {
-            logger.info("Products - list(): " + p.toString());
+            logger.info("Doctors - list(): " + p.toString());
         }
         return results;
     }
@@ -54,15 +54,15 @@ public class DoctorDAO {
         PaginatedQueryList<Doctor> result = this.mapper.query(Doctor.class, queryExp);
         if (result.size() > 0) {
             doctor = result.get(0);
-            logger.info("Products - get(): product - " + doctor.toString());
+            logger.info("Doctors - get(): doctor - " + doctor.toString());
         } else {
-            logger.info("Products - get(): product - Not Found.");
+            logger.info("Doctors - get(): doctor - Not Found.");
         }
         return doctor;
     }
 
     public void insert(Doctor doctor) throws IOException {
-        logger.info("Products - save(): " + doctor.toString());
+        logger.info("Doctors - save(): " + doctor.toString());
         this.mapper.save(doctor);
     }
 
@@ -72,10 +72,10 @@ public class DoctorDAO {
         // get product if exists
         doctor = findById(id);
         if (doctor != null) {
-            logger.info("Products - delete(): " + doctor.toString());
+            logger.info("Doctors - delete(): " + doctor.toString());
             this.mapper.delete(doctor);
         } else {
-            logger.info("Products - delete(): product - does not exist.");
+            logger.info("Doctors - delete(): doctor - does not exist.");
             return false;
         }
         return true;

@@ -2,7 +2,7 @@ package com.plansoft.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-@DynamoDBTable(tableName = "products_table")
+@DynamoDBTable(tableName = "doctors_table")
 public class Doctor {
 
     private String id;
@@ -35,7 +35,7 @@ public class Doctor {
     }
 
     public String toString() {
-        return String.format("Product [id=%s, name=%s, price=$%f]", this.id, this.name, this.surname);
+        return String.format("Doctor [id=%s, name=%s, surname=$%s]", this.id, this.name, this.surname);
     }
 
 }
