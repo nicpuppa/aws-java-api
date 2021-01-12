@@ -23,6 +23,8 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: java8
+  apiGateway:
+    shouldStartNameWithService: true
   lambdaHashingVersion: 20201221
   iamRoleStatements:
     - Effect: "Allow"
