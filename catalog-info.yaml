@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "aws-java-doctor-api"
+  annotations:
+    datadoghq.com/dashboard-url: https://p.datadoghq.eu/sb/61e1e8b8-45ec-11ec-ab67-da7ad0900005-441ff8e44b179b3b7ad1f63ff65e8a45
+    github.com/project-slug: nicpuppa/aws-java-doctor-api
+spec:
+  type: service
+  owner: user:guest
+  lifecycle: experimental
